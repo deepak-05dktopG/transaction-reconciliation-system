@@ -41,7 +41,7 @@
 
 ---
 ## 🎥 Demo Video
-[![Click to Watch]()](https://github.com/deepak-05dktopG/transaction-reconciliation-system/blob/main/Demo%20Video.mp4))
+[![Click to Watch]()](https://github.com/deepak-05dktopG/transaction-reconciliation-system/blob/main/Demo%20Video.mp4)
 
 ## 🛠️ Tech Stack
 - TypeScript 
