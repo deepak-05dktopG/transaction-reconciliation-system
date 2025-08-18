@@ -5,9 +5,19 @@
   <br/>
   🌍 Live Demo
 🚀 The project is live here:  
-👉 [Transaction Reconciliation System](https://transaction-reconciliation-system.netlify.app/)  
-
+👉 [Transaction Reconciliation System](https://transaction-reconciliation-system.netlify.app)  
 </p>
+ <h3 align="center">☁️ Frontend & Backend are deployed on : </h3>
+<p align="center">
+  <a href="https://transaction-reconciliation-system.netlify.app/">
+    <img src="https://img.shields.io/badge/Frontend-Netlify-blue?style=for-the-badge&logo=netlify" alt="Frontend on Netlify"/>
+  </a>
+  &nbsp;
+  <a href="https://reconciliation-backend-8idg.onrender.com">
+    <img src="https://img.shields.io/badge/Backend-Render-purple?style=for-the-badge&logo=render" alt="Backend on Render"/>
+  </a>
+</p>
+
 
 ---
 
