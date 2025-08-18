@@ -91,6 +91,8 @@ GET /transactions/:id → single transaction
 GET /transactions/dashboard/summary → summary metrics
 POST /import/transactions → upload transaction CSV
 POST /import/settlements → upload settlement CSV
+POST /reconcile → reconcile settlement CSV
+
 ```
 ## 🎨 Frontend Setup
 
