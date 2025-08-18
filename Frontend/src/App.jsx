@@ -7,7 +7,7 @@ import {
 
 const API_BASE = "http://localhost:3000";
 function App() {
-  // States
+  //states
   const [summary, setSummary] = useState(null);
   const [transactions, setTransactions] = useState([]);
   const [filteredTransactions, setFilteredTransactions] = useState([]);
@@ -17,11 +17,9 @@ function App() {
   const [file, setFile] = useState(null);
   const [uploadStatus, setUploadStatus] = useState(null);
 
-  // ======================
-  // API Calls
-  // ======================
+  //API Calls
 
-  // Get Dashboard Summary
+  //get Dashboard Summary
   const fetchDashboardSummary = async () => {
     try {
       const res = await axios.get(`${API_BASE}/dashboard/summary`);
@@ -31,18 +29,18 @@ function App() {
     }
   };
 
-  // Get All Transactions
+  //get All Transactions
   const fetchTransactions = async () => {
     try {
       const res = await axios.get(`${API_BASE}/transactions`);
       setTransactions(res.data);
-      setFilteredTransactions(res.data); // Initialize filtered transactions
+      setFilteredTransactions(res.data); //initialize filtered transactions
     } catch (err) {
       console.error("Error fetching transactions:", err);
     }
   };
 
-  // Get Transaction by ID
+  //get Transaction by ID
   const fetchTransactionById = async (id) => {
     setLoading(true);
     try {
@@ -55,7 +53,7 @@ function App() {
     }
   };
 
-  // Upload CSV file to reconcile endpoint
+  //upload CSV file to reconcile endpoint
   const handleFileUpload = async () => {
     if (!file) {
       setUploadStatus({ type: 'error', message: 'Please select a CSV file to upload.' });
@@ -72,7 +70,7 @@ function App() {
         },
       });
       setUploadStatus({ type: 'success', message: res.data.message || 'File uploaded successfully.' });
-      // Refresh transactions and summary after successful upload
+      //rrefresh transactions and summary after successful upload
       await fetchTransactions();
       await fetchDashboardSummary();
     } catch (err) {
@@ -81,13 +79,13 @@ function App() {
     }
   };
 
-  // Handle file input change
+  //handle file input change
   const handleFileChange = (e) => {
     setFile(e.target.files[0]);
-    setUploadStatus(null); // Clear previous status
+    setUploadStatus(null); //clear previous status
   };
 
-  // Filter transactions by settlement status
+  //filter transactions by settlement status
   const handleFilterChange = (e) => {
     const filterValue = e.target.value;
     setSettlementFilter(filterValue);
@@ -102,13 +100,13 @@ function App() {
     }
   };
 
-  // Load summary & transactions when page loads
+  //load summary & transactions when page loads
   useEffect(() => {
     fetchDashboardSummary();
     fetchTransactions();
   }, []);
 
-  // Chart Data
+  //chart Data
   const COLORS = ['#ffc107', '#0dcaf0', '#198754', '#6c757d', '#212529'];
 
   const statusData = summary ? [
@@ -126,11 +124,11 @@ function App() {
 
   return (
     <div className="container mt-4">
-      {/* Dashboard Summary */}
+      {/*dashboard Summary */}
       <h2 className="mb-4 text-center">📊 Dashboard Summary</h2>
       {summary ? (
         <div className="row g-3">
-          {/* Total Transactions */}
+          {/*total Transactions */}
           <div className="col-6 col-md-4">
             <div className="card shadow-sm text-center h-100">
               <div className="card-body">
@@ -140,7 +138,7 @@ function App() {
             </div>
           </div>
 
-          {/* Total Settlements */}
+          {/*total Settlements */}
           <div className="col-6 col-md-4">
             <div className="card shadow-sm text-center h-100">
               <div className="card-body">
@@ -150,7 +148,7 @@ function App() {
             </div>
           </div>
 
-          {/* Outstanding Amount */}
+          {/*outstanding Amount */}
           <div className="col-6 col-md-4">
             <div className="card shadow-sm text-center h-100">
               <div className="card-body">
@@ -160,7 +158,7 @@ function App() {
             </div>
           </div>
 
-          {/* Breakdown by Settlement Status - Pie Chart */}
+          {/*breakdown by Settlement Status - Pie Chart */}
           <div className="col-md-6">
             <div className="card shadow-sm h-100">
               <div className="card-body">
@@ -192,7 +190,7 @@ function App() {
             </div>
           </div>
 
-          {/* Issues - Bar Chart */}
+          {/*issues - bar chart */}
           <div className="col-md-6">
             <div className="card shadow-sm h-100">
               <div className="card-body">
@@ -219,7 +217,7 @@ function App() {
             </div>
           </div>
 
-          {/* Metrics */}
+          {/*metrics */}
           <div className="col-md-6">
             <div className="card shadow-sm h-100">
               <div className="card-body">
@@ -234,7 +232,7 @@ function App() {
         <p className="text-center">Loading summary...</p>
       )}
 
-      {/* File Upload Section */}
+      {/* file Upload Section */}
       <h2 className="mt-4">Upload Reconciliation File</h2>
       <div className="card shadow-sm mb-4">
         <div className="card-body">
@@ -263,7 +261,7 @@ function App() {
         </div>
       </div>
 
-      {/* Transactions List */}
+      {/* transactions List */}
       <h2 className="mt-4">Transactions</h2>
       <div className="mb-3">
         <label htmlFor="settlementFilter" className="form-label">Filter by Settlement Status:</label>
@@ -348,7 +346,7 @@ function App() {
         <p className="text-center">No transactions match the selected filter.</p>
       )}
 
-      {/* Transaction Details */}
+      {/* transaction Details */}
       <h2 className="mt-5 mb-3 text-center">📄 Transaction Details</h2>
       {loading && <p className="text-center">Loading details...</p>}
 
@@ -359,7 +357,7 @@ function App() {
           </h5>
 
           <div className="row">
-            {/* Left column */}
+            {/* left column */}
             <div className="col-md-6">
               <p><strong>Lifecycle ID:</strong> {selectedTransaction.lifecycle_id}</p>
               <p><strong>Account ID:</strong> {selectedTransaction.account_id}</p>
@@ -368,7 +366,7 @@ function App() {
               <p><strong>Currency:</strong> {selectedTransaction.currency}</p>
             </div>
 
-            {/* Right column */}
+            {/* right column */}
             <div className="col-md-6">
               <p><strong>Transaction Amount:</strong> {selectedTransaction.transaction_amount} {selectedTransaction.currency}</p>
               <p><strong>Status:</strong>
@@ -393,7 +391,7 @@ function App() {
             </div>
           </div>
 
-          {/* Issue Section */}
+          {/* issue Section */}
           <div className="mt-3">
             <p><strong>Issue:</strong>
               {selectedTransaction.issue === "CRITICAL" && (
