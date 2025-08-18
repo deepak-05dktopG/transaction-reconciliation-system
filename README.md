@@ -83,6 +83,8 @@ cd backend
 npm install
 npm run dev
 
+Backend Dependencies - express, sqlite3, csv-parser, multer, ts-node, typescript
+
 API Runs on 👉 http://localhost:3000
 GET /transactions → all transactions
 GET /transactions/:id → single transaction
@@ -97,10 +99,23 @@ cd transaction-reconciliation/frontend
 npm install
 npm run dev
 
+Frontend Dependencies - react, react-dom, vite, axios, bootstrap
+
 📊 Dashboard with summary cards
 📋 Table showing all transactions with reconciliation status
 📈 Chart visualization for settlements
 ```
+## 📦 Requirements
+
+Before running the project, make sure you have the following installed:
+
+- [Node.js](https://nodejs.org/) **v18 or higher**
+- [npm](https://www.npmjs.com/) (comes with Node.js)
+- Git (for cloning the repository)
+
+Each project folder (`backend/` and `frontend/`) has its own `package.json` file which defines the dependencies.  
+Run `npm install` inside each folder to install the required packages.
+
 ---
 
 <h2 align="center">🙋 About Me</h2>
