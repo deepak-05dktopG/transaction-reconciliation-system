@@ -41,7 +41,9 @@
 
 ---
 ## 🎥 Demo Video
-[![Click to Watch]()](https://github.com/deepak-05dktopG/transaction-reconciliation-system/blob/main/Demo%20Video.mp4)
+<a href="https://github.com/deepak-05dktopG/transaction-reconciliation-system/blob/main/Demo%20Video.mp4">
+  <img src="https://tse1.mm.bing.net/th/id/OIP.r4THMJUVUUieb1nhZJzFjQHaHa?rs=1&pid=ImgDetMain&o=7&rm=3" alt="Click to Watch" width="200"/>
+</a>
 
 ## 🛠️ Tech Stack
 - TypeScript 
